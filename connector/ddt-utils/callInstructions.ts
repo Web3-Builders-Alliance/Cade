@@ -37,10 +37,11 @@ export const createGame = (program, map , user,) => {
           .createGame()
           .accounts({
             map:mapPDA,
-            game,
+            game:game.publicKey,
             user,
             systemProgram: web3.SystemProgram.programId,
           })
+          .signers([game])
           .rpc();
       } catch (error) { console.log(error) }
     })();
