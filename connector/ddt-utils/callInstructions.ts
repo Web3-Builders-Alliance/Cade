@@ -48,7 +48,12 @@ export const createGame = (program, map , user,) => {
   }
 };
 
-export const deployUnits = (program, deploys, game, user, map, systemProgram,) => {
+export const deployUnits = (program, deploys, game, user, map,) => {
+  console.log({ deploys, game, user, map })
+  const [mapPDA] = web3.PublicKey.findProgramAddressSync(
+    [Buffer.from(map)],
+    program.programId,
+  )
   if (program) {
     (async () => {
       try {
@@ -57,8 +62,8 @@ export const deployUnits = (program, deploys, game, user, map, systemProgram,) =
           .accounts({
             game,
             user,
-            map,
-            systemProgram,
+            map:mapPDA,
+            systemProgram: web3.SystemProgram.programId,
           })
           .rpc();
       } catch (error) { console.log(error) }

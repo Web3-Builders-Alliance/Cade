@@ -10,6 +10,7 @@ import {
 import {
   deployUnits
 } from '../../connector/ddt-utils/callInstructions'
+import { PublicKey } from "@solana/web3.js";
 
 
 const ChooseUnits = (props) => {
@@ -19,12 +20,7 @@ const ChooseUnits = (props) => {
 
 // React UseStates hooks for managing args 
 //for createMap
-const [name_for_createMap , setname_for_createMap] = useState()
-const [board_for_createMap , setboard_for_createMap] = useState()
-const [budget_for_createMap , setbudget_for_createMap] = useState()
-//for createGame
-//for deployUnits
-const [deploys_for_deployUnits , setdeploys_for_deployUnits] = useState()
+const [deploys_for_deployUnits , setdeploys_for_deployUnits] = useState([["plane"],[],[],[],[],[],])
 
 //handler functions for inputs feilds
 const namehandler_for_createMap = (e) => {
@@ -41,13 +37,7 @@ const deployshandler_for_deployUnits = (e) => {
 }
 
 const map_name = "test"
-
-const game_for_createGame = ""
-const user_for_createGame = ""
-const game_for_deployUnits = ""
-const user_for_deployUnits = ""
-const map_for_deployUnits = ""
-
+const map_for_deployUnits = "test"
 
   return (
     <>
@@ -146,7 +136,7 @@ const map_for_deployUnits = ""
                     <button 
                     className="bg-blue-500 flex justify-center items-center w-full text-white px-3 text-xl py-1 rounded-md focus:outline-none"
                     onClick={
-                      ()=>deployUnits(program , deploys_for_deployUnits ,  game_for_deployUnits   , user_for_deployUnits   , map_for_deployUnits   ,   systemProgram ,)
+                      ()=>deployUnits(program , deploys_for_deployUnits ,  new PublicKey("BeTLVuVggw6J2E6192gRscNULXqoeiSr9nUvP9aXEa7a")   , wallet.publicKey   , map_for_deployUnits ,)
                     }
                     >
                        Call_deployUnits_instruction
