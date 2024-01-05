@@ -6,7 +6,7 @@ import { DownwardBar } from "../../components/GamePageComponents/DownwardBar";
 import { useUSDCPay } from "../../hooks/transfer";
 import { useRouter } from "next/router";
 import TowerDefence from "../../components/games/TowerDefence";
-import FourInLine from "../../components/games/FourInLine";
+import FourInLine from "../FourInLineGame";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { PublicKey } from "@solana/web3.js";
 import Link from "next/link";

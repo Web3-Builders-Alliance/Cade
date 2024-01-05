@@ -21,23 +21,18 @@ const FourInLineGame = () => {
   //
 
   useEffect(() => {
-    if (program) {
-      const [pda] = web3.PublicKey.findProgramAddressSync(
-        [Buffer.from("game"), Buffer.from(slug?.toString() ?? "")],
-        program.programId
-      );
-      setGamePublicKey(pda);
-    }
-  }, [wallet]);
+    setGamePublicKey(slug);
+    console.log(slug);
+  }, [slug]);
 
   useEffect(() => {
-    if (gamePublicKey) {
+    if (gamePublicKey && program) {
       (async () => {
         const gameAccount = await program.account.game.fetch(gamePublicKey);
         setGameAccount(gameAccount);
       })();
     }
-  }, [gamePublicKey]);
+  }, [gamePublicKey, program]);
 
   useEffect(() => {
     if (!program) return;
