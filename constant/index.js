@@ -9,7 +9,7 @@ export const COIN_FLIP_PROGRAM_ID = new PublicKey(
 );
 
 export const FOUR_IN_LINE_PROGRAM_ID = new PublicKey(
-  "D17ocZkgrhNYizSp415zod3Nsd7BHBqjSTAFnPU9WG8A"
+  "Ha6zWmPZUce5ZNJE2Ua9bMMCgDj6DS3dw7UuTHL7rms8"
 );
 
 export const TOWER_DEFENCE_PROGRAM_ID = new PublicKey(

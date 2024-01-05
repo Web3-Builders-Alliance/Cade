@@ -6,7 +6,7 @@ import { DownwardBar } from "../GamePageComponents/DownwardBar";
 import { useUSDCPay } from "../../hooks/transfer";
 import { useRouter } from "next/router";
 import TowerDefence from "../games/TowerDefence";
-import FourInLine from "../games/FourInLine";
+
 import { useWallet } from "@solana/wallet-adapter-react";
 import { PublicKey } from "@solana/web3.js";
 import Link from "next/link";
@@ -106,7 +106,6 @@ const Herop = ({
     if (slug == "FourInLine") {
       return (
         <div className="mt-10">
-          <FourInLine />
         </div>
       );
     }
